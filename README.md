@@ -1,7 +1,7 @@
 
 # Prefect Flow CDK Deployment
 
-The repository explains how to deploy a complete Prefect Orchestration layer using ECS Fargate.
+The repository explains how to deploy a complete Prefect Orchestration layer using ECS Fargate on Ubuntu 18.04 or Amazon AMI.
 
 ## Architecture and Infrastructure 
 
