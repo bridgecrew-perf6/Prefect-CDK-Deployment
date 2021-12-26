@@ -8,9 +8,9 @@ across two availiablity zones. These public subnets are connected through an app
 are running one Fargate container as a service all times.
 
 The app deploys prefect flow scrapper that scraps top gainers cryptocurrency from coin marketcap. The flow has three components:
-  1. Extract task: Here the requests and beautifulSoup libraries are used to scrap relevant data from webpage.
-  2. Transform task: This tasks transforms currency unit from USD to AUD
-  3. Load task: This task saves the transformed dataset into S3 container.
+  1. ***Extract task:*** Here the requests and beautifulSoup libraries are used to scrap relevant data from webpage.
+  2. ***Transform task:*** This tasks transforms currency unit from USD to AUD
+  3. ***Load task:*** This task saves the transformed dataset into S3 container.
 
 All of these tasks are then configured into a prefect flow. This flow can be found in the [following repository](https://github.com/usamatrq94/Prefect-ECSAgent-Deploy).
 Prefect flows and its deployment configuration are wrapped into a Dockerfile, which can also be found in above repository.
