@@ -8,7 +8,8 @@ The app deploys prefect flow scrapper that scraps top gainers cryptocurrency fro
   2. Transform task: This tasks transforms currency unit from USD to AUD
   3. Load task: This task saves the transformed dataset into S3 container.
 
-
+All of these tasks are then configured into a prefect flow. This flow can be found in a [following repository](https://github.com/usamatrq94/Prefect-ECSAgent-Deploy).
+Prefect flows and its deployment configuration are wrapped into a Dockerfile, which can also be found in above repository.
 
 This is a blank project for Python development with CDK.
 
