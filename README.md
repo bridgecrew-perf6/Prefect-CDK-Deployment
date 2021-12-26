@@ -1,5 +1,7 @@
 
-# Welcome to your CDK Python project!
+# Prefect Flow CDK Deployment
+
+The repository explains how to deploy a complete Prefect Orchestration layer using ECS Fargate.
 
 This is a blank project for Python development with CDK.
 
