@@ -8,34 +8,21 @@ The app deploys prefect flow scrapper that scraps top gainers cryptocurrency fro
   2. Transform task: This tasks transforms currency unit from USD to AUD
   3. Load task: This task saves the transformed dataset into S3 container.
 
-All of these tasks are then configured into a prefect flow. This flow can be found in a [following repository](https://github.com/usamatrq94/Prefect-ECSAgent-Deploy).
+All of these tasks are then configured into a prefect flow. This flow can be found in the [following repository](https://github.com/usamatrq94/Prefect-ECSAgent-Deploy).
 Prefect flows and its deployment configuration are wrapped into a Dockerfile, which can also be found in above repository.
 
-This is a blank project for Python development with CDK.
+The Dockerfile is build into an image and then its pushed to ECR public repository. This can be accessed [here](https://gallery.ecr.aws/s0c5i6w0/prefect-service-image).
+This image is used as base container image for ECS task defination. The image is provided to Application Load Balanced Fargate Service in prefect_ecs_stack.py. 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+# Deployment Procedure
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+This project is set up like a standard Python project.  The initialization process also creates a virtualenv within this project, stored under the `.venv`
+directory.  To create the virtualenv it assumes that there is a `python3` (or `python` for Windows) executable in your path with access to the `venv`
+package. 
 
-To manually create a virtualenv on MacOS and Linux:
 
-```
-$ python -m venv .venv
-```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
+You can start by activating the virtualenv on windows like this:
 
 ```
 % .venv\Scripts\activate.bat
@@ -52,6 +39,14 @@ At this point you can now synthesize the CloudFormation template for this code.
 ```
 $ cdk synth
 ```
+Once the syntheis is complete, it provides a cloudformation template for all infrastructure. Sometimes, CDK reqires you to bootstrap, you can do this using following code below:
+```
+cdk bootstrap
+```
+Once this is done, we are ready to deploy our infrastructure as code
+```
+cdk deploy
+```
 
 To add additional dependencies, for example other CDK libraries, just add
 them to your `setup.py` file and rerun the `pip install -r requirements.txt`
@@ -64,6 +59,6 @@ command.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
+ * `cdk destroy`     remove all resources and stack
 
-Enjoy!
-# Prefect-CDK-Deployment
+
