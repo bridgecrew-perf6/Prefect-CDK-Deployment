@@ -41,11 +41,11 @@ $ cdk synth
 ```
 Once the syntheis is complete, it provides a cloudformation template for all infrastructure. Sometimes, CDK reqires you to bootstrap, you can do this using following code below:
 ```
-cdk bootstrap
+$ cdk bootstrap
 ```
 Once this is done, we are ready to deploy our infrastructure as code
 ```
-cdk deploy
+$ cdk deploy
 ```
 
 To add additional dependencies, for example other CDK libraries, just add
