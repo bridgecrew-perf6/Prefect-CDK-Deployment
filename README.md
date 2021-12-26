@@ -4,9 +4,9 @@
 The repository explains how to deploy a complete Prefect Orchestration layer using ECS Fargate.
 
 The app deploys prefect flow scrapper that scraps top gainers cryptocurrency from coin marketcap. The flow has three components:
-  1: Extract task: Here the requests and beautifulSoup libraries are used to scrap relevant data from webpage.
-  2: Transform task: This tasks transforms currency unit from USD to AUD
-  3: Load task: This task saves the transformed dataset into S3 container.
+  1. Extract task: Here the requests and beautifulSoup libraries are used to scrap relevant data from webpage.
+  2. Transform task: This tasks transforms currency unit from USD to AUD
+  3. Load task: This task saves the transformed dataset into S3 container.
 
 
 
