@@ -22,7 +22,25 @@ Prefect flows and its deployment configuration are wrapped into a Dockerfile, wh
 The Dockerfile is build into an image and then its pushed to ECR public repository. This can be accessed [here](https://gallery.ecr.aws/s0c5i6w0/prefect-service-image).
 This image is used as base container image for ECS task defination. The image is provided to Application Load Balanced Fargate Service in prefect_ecs_stack.py. 
 
+As for ECS Cluster, it will be running two Containers, first will be running as a service, prefect backend Cloud, that will be polling prefect cloud api for workloads,
+once the a workload is available, the second container is started for resolving the prefect workload.
+
 ## Deployment Procedure
+
+This complete infrastructre can be deployed through following steps:
+  1. Installing Node and AWS CDK
+  2. Installing git and cloning the repository
+  3. Activating virtual envoirnment and installing dependencies
+  4. Sythesizing AWS Stack
+  5. Deploying AWS Stack
+Lets start
+
+### Installing Node and AWS CDK
+
+For this project, I'll be using `Node==v16.31.1` and `CDK==2.1.0`
+Installing Node first:
+
+
 
 This project is set up like a standard Python project.  The initialization process also creates a virtualenv within this project, stored under the `.venv`
 directory.  To create the virtualenv it assumes that there is a `python3` (or `python` for Windows) executable in your path with access to the `venv`
