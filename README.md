@@ -3,6 +3,10 @@
 
 The repository explains how to deploy a complete Prefect Orchestration layer using ECS Fargate.
 
+Starting with ECS Cluster setup and architecuture. Cluster type Fargate is used for this project. The architecture consists of one VPC consisting of 2 public subsnets spread
+across two availiablity zones. These public subnets are connected through an application load balancer and can access internet through NAT gateway. Each of the public subnets
+are running one Fargate container as a service all times.
+
 The app deploys prefect flow scrapper that scraps top gainers cryptocurrency from coin marketcap. The flow has three components:
   1. Extract task: Here the requests and beautifulSoup libraries are used to scrap relevant data from webpage.
   2. Transform task: This tasks transforms currency unit from USD to AUD
