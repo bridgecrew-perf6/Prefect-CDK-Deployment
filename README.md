@@ -49,7 +49,7 @@ python -m pip install aws-cdk-lib
 ```
 ### 2. Configuring AWS CDK
 
-Now to provide Access Key ID and Secret Access Key to connect to your AWS user. We need to make sure that the provided AWS user has required permissions to create resources
+Now to provide Access Key ID, Secret Access Key and default region to connect to your AWS user. We need to make sure that the provided AWS user has required permissions to create resources
 for the stack. We can do this by:
 ```
 aws configure
