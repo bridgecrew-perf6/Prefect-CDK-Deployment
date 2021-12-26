@@ -29,43 +29,62 @@ once the a workload is available, the second container is started for resolving 
 
 This complete infrastructre can be deployed through following steps:
   1. Installing Node and AWS CDK
-  2. Installing git and cloning the repository
-  3. Activating virtual envoirnment and installing dependencies
-  4. Sythesizing AWS Stack
-  5. Deploying AWS Stack
+  2. Configuring AWS CDK
+  3. Installing git and cloning git repository
+  4. Activating virtual envoirnment and installing dependencies
+  5. Sythesizing AWS Stack
+  6. Deploying AWS Stack
+
 Lets start
 
-### Installing Node and AWS CDK
+### 1. Installing Node and AWS CDK
 
-For this project, I'll be using `Node==v16.31.1` and `CDK==2.1.0`
-Installing Node first:
+For this project, I'll be using `Node==v16.31.1` and `CDK==2.1.0`.
 
+Installation for Node on windows can be found [here](https://phoenixnap.com/kb/install-node-js-npm-on-windows). 
 
+For installing CDK
+```
+python -m pip install aws-cdk-lib
+```
+### 2. Configuring AWS CDK
 
-This project is set up like a standard Python project.  The initialization process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3` (or `python` for Windows) executable in your path with access to the `venv`
-package. 
+Now to provide Access Key ID and Secret Access Key to connect to your AWS user. We need to make sure that the provided AWS user has required permissions to create resources
+for the stack. We can do this by:
+```
+aws configure
+```
+### 3. Installing git and cloning git repository
 
-You can start by activating the virtualenv on windows like this:
+Run the following code:
+```
+sudo apt install git-all
+git clone https://github.com/usamatrq94/Prefect-CDK-Deployment.git
+cd Prefect-CDK-Deployment
+```
+### 4. Activating virtual envoirnment and installing dependencies
 
+We can start by activating the virtualenv on windows and install requirements by:
 ```
 % .venv\Scripts\activate.bat
+pip install -r requirements.txt
 ```
-Once the virtualenv is activated, you can install the required dependencies.
+### 5. Sythesizing AWS Stack
+
+Now we need synthesize the CloudFormation template for this code.
 ```
-$ pip install -r requirements.txt
+cdk synth
 ```
-At this point you can now synthesize the CloudFormation template for this code.
+### 6. Deploying AWS Stack
+
+Once the syntheis is complete, it provides a cloudformation template for all infrastructure. 
+Sometimes, CDK reqires you to bootstrap, you can do this using following code below:
 ```
-$ cdk synth
-```
-Once the syntheis is complete, it provides a cloudformation template for all infrastructure. Sometimes, CDK reqires you to bootstrap, you can do this using following code below:
-```
-$ cdk bootstrap
+cdk bootstrap
 ```
 Once this is done, we are ready to deploy our infrastructure as code
 ```
-$ cdk deploy
+cdk deploy
 ```
 
 To add additional dependencies, for example other CDK libraries, just add them to your `setup.py` file and rerun the `pip install -r requirements.txt` command.
