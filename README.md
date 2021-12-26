@@ -3,6 +3,8 @@
 
 The repository explains how to deploy a complete Prefect Orchestration layer using ECS Fargate.
 
+## Architecture and Infrastructure 
+
 Starting with ECS Cluster setup and architecuture. Cluster type Fargate is used for this project. The architecture consists of one VPC consisting of 2 public subsnets spread
 across two availiablity zones. These public subnets are connected through an application load balancer and can access internet through NAT gateway. Each of the public subnets
 are running one Fargate container as a service all times.
@@ -18,7 +20,7 @@ Prefect flows and its deployment configuration are wrapped into a Dockerfile, wh
 The Dockerfile is build into an image and then its pushed to ECR public repository. This can be accessed [here](https://gallery.ecr.aws/s0c5i6w0/prefect-service-image).
 This image is used as base container image for ECS task defination. The image is provided to Application Load Balanced Fargate Service in prefect_ecs_stack.py. 
 
-# Deployment Procedure
+## Deployment Procedure
 
 This project is set up like a standard Python project.  The initialization process also creates a virtualenv within this project, stored under the `.venv`
 directory.  To create the virtualenv it assumes that there is a `python3` (or `python` for Windows) executable in your path with access to the `venv`
