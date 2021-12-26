@@ -66,7 +66,7 @@ cd Prefect-CDK-Deployment
 
 We can start by activating the virtualenv on windows and install requirements by:
 ```
-% .venv\Scripts\activate.bat
+.venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 ### 5. Sythesizing AWS Stack
